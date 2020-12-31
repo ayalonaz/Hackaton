@@ -23,7 +23,6 @@ class KBHit:
         #Support normal-terminal reset at exit
         atexit.register(self.set_normal_term)
 
-
     def set_normal_term(self):
         ''' Resets to normal terminal.  On Windows this is a no-op.
         '''

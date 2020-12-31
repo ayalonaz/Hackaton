@@ -10,23 +10,6 @@ score_group_2 = 0
 score_group_1 = 0
 
 
-# from SocketServer import ThreadingMixIn
-
-# Multithreaded Python server : TCP Server Socket Thread Pool
-
-
-# def count_keys(conn):
-#     counter = 0
-#     t_end = time.time() + 10 * 1
-#     while time.time() < t_end:
-#         try:
-#             data = conn.recv(2048).decode()
-#         # data = data+"\n"
-#     # print(data)
-#             counter += 1
-#         except socket.error:
-#             continue
-#     return conn, counter
 def count_keys_1(conns_group_1):
     """
              this function count the score of group 1
@@ -41,8 +24,6 @@ def count_keys_1(conns_group_1):
                 conn.settimeout(0.1)
                 data = conn.recv(2048).decode()
                 score_group_1 += 1
-            # data = data+"\n"
-            # print(data)
             except socket.timeout:
                 continue
 
@@ -81,8 +62,6 @@ def broadcast(udp_ip, udp_port, udp_server, first_message):
         print("Server started, listening on IP address " + udp_server.getsockname()[0])
         udp_server.sendto(first_message, (udp_ip, udp_port))
         time.sleep(1)
-
-
 
 
 def wait_for_clients(tcp_server):

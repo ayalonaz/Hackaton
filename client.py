@@ -28,7 +28,6 @@ def try_to_connect(client_socket, host, port):
         try:
             data, address = client.recvfrom(2048)
             host, _ = address#address is a tuple
-
             first_data = struct.unpack('4s 1s 2s', data)
             cookie = first_data[0].hex()
             offer = str(first_data[1].hex())
